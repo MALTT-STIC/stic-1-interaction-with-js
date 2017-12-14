@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- We add some styling to the button through CSS -->
+    <style>
+        .betterButtonInterface {
+            background-color: #066;
+            color: #FFF;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- The interactive element -->
+    <button id="interactiveIdentifier" class="betterButtonInterface">I am interactive now!</button>
+
+    <!-- If we want to change some element in the DOM after the interaction, we need to identify it (as it was for the button) -->
+    <p id="elementToChange">I will be changed!</p>
+
+    <!-- You need a script for it -->
+    <script>
+        //Create a symbolic reference (i.e. a variable) to the INTERACTIVE HTML element
+        var theButton = document.getElementById('interactiveIdentifier');
+        //Create a symbolic reference to the ELEMENT TO CHANGE after the interaction
+        var theOutput = document.getElementById('elementToChange');
+        //Add a listener that just print a message when the button is clicked
+        theButton.addEventListener('click', function () {
+            //Inside the function we give the instruction to change the content of the paragraph
+            theOutput.innerHTML = 'I have been changed through the interaction!';
+        });
+    </script>
+
+</body>
+
+</html>

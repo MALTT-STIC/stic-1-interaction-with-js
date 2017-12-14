@@ -18,19 +18,16 @@
 
 <body>
     <!-- The interactive element -->
-    <button id="interactiveIdentifier" class="betterButtonInterface">I will be interactive</button>
+    <button id="interactiveIdentifier" class="betterButtonInterface">I am interactive now!</button>
 
     <!-- You need a script for it -->
     <script>
         //Create a symbolic reference (i.e. a variable) to the HTML element
         var theButton = document.getElementById('interactiveIdentifier');
-        //Show the reference in the console (open the console to see what it gives)
-        console.log(theButton);
-        //We can access the button attributes
-        console.log(theButton.id);
-        console.log(theButton.className);
-        //But also its content
-        console.log(theButton.innerHTML);
+        //Add a listener that just print a message when the button is clicked (alternative syntaxe)
+        theButton.onclick = function () {
+            console.log('theButton has been clicked!');
+        };
     </script>
 
 </body>
