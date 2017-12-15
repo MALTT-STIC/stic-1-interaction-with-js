@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interactive button 10/10</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- We add some styling to the button and the output through CSS -->
+    <style>
+        .betterButtonInterface {
+            background-color: #066;
+            color: #FFF;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+
+        .code {
+            font-size: 50px;
+            letter-spacing: 10px;
+            font-family: Courier New, Courier, monospace;
+            background-color: black;
+            color: #FFF;
+            padding: 10px 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interactive button 10/10</h1>
+    <!-- The interactive element -->
+    <button id="interactiveIdentifier" class="betterButtonInterface">Give me an alphanumeric string</button>
+
+    <!-- If we want to change some element in the DOM after the interaction, we need to identify it (as it was for the button) -->
+    <p id="elementToChange" class="code">I will be changed!</p>
+
+    <!-- You need a script for it -->
+    <script>
+        //Create a symbolic reference (i.e. a variable) to the INTERACTIVE HTML element
+        var theButton = document.getElementById('interactiveIdentifier');
+        //Create a symbolic reference to the ELEMENT TO CHANGE after the interaction
+        var theOutput = document.getElementById('elementToChange');
+        //Define some functions that perform some logic
+
+        //Generate a random number between 0 and 9
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 10);
+        }
+
+        //Generate a random letter a-z
+        function generateRandomLetter() {
+            return String.fromCharCode(97 + Math.floor(Math.random() * 26));
+        }
+        //Add a listener that return an alphanumeric string
+        theButton.addEventListener('click', function () {
+            //You can add more complex logic calling functions inside the event listener
+            var alphaNumericString = '';
+            for (let i = 0; i < 10; i++) {
+                alphaNumericString += generateRandomLetter();
+                alphaNumericString += generateRandomNumber();
+            }
+
+            theOutput.innerHTML = alphaNumericString;
+
+        });
+    </script>
+
+</body>
+
+</html>
