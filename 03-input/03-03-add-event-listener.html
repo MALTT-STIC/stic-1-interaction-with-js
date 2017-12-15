@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inputs 3/4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add some style to the input and output for a better layout -->
+    <style>
+        input {
+            font-size: 20px;
+            padding: 10px 20px;
+            width: 500px;
+        }
+
+        .message {
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: blueviolet;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Inputs 3/4</h1>
+    <!-- Outside a form, inputs can be identifies as any other element, for instance using the id="myUniqueId" attribute -->
+    <input type="text" value="Now I am interactive!" id="myInteractiveTextInput">
+    <!-- Use a paragraph as output -->
+    <p id="output" class="message"></p>
+    <!-- Identify it with JavaScript -->
+    <script>
+        //Use a document method do identify the element, e.g. document.querySelector or document.getElementById
+        var theInput = document.querySelector('#myInteractiveTextInput');
+        //Identiy the output element
+        var theOutput = document.querySelector('#output');
+        //Add an event listener for keyboards-up events (i.e. every time the user release the key after a new character is inserted)
+        theInput.addEventListener('keyup', function () {
+            //Update the output with the input string
+            theOutput.innerHTML = theInput.value;
+        });
+    </script>
+</body>
+
+</html>
