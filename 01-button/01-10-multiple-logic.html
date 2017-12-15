@@ -14,25 +14,29 @@
             padding: 5px 10px;
         }
 
-        .code {
+        .message {
             font-size: 50px;
-            letter-spacing: 10px;
+            letter-spacing: 5px;
             font-family: Courier New, Courier, monospace;
-            background-color: black;
-            color: #FFF;
             padding: 10px 25px;
             text-align: center;
+        }
+
+        .message strong {
+            font-size: 90px;
         }
     </style>
 </head>
 
 <body>
     <h1>Interactive button 10/10</h1>
+    <p>This simple game aims at improving your vocabulary. You will be asked to say aloud a number of words beginning with a
+        given letter.</p>
     <!-- The interactive element -->
-    <button id="interactiveIdentifier" class="betterButtonInterface">Give me an alphanumeric string</button>
+    <button id="interactiveIdentifier" class="betterButtonInterface">Play!</button>
 
     <!-- If we want to change some element in the DOM after the interaction, we need to identify it (as it was for the button) -->
-    <p id="elementToChange" class="code">I will be changed!</p>
+    <p id="elementToChange" class="message"></p>
 
     <!-- You need a script for it -->
     <script>
@@ -42,9 +46,9 @@
         var theOutput = document.getElementById('elementToChange');
         //Define some functions that perform some logic
 
-        //Generate a random number between 0 and 9
+        //Generate a random number between 1 and 10
         function generateRandomNumber() {
-            return Math.floor(Math.random() * 10);
+            return Math.floor(Math.random() * 10) + 1;
         }
 
         //Generate a random letter a-z
@@ -54,13 +58,9 @@
         //Add a listener that return an alphanumeric string
         theButton.addEventListener('click', function () {
             //You can add more complex logic calling functions inside the event listener
-            var alphaNumericString = '';
-            for (let i = 0; i < 10; i++) {
-                alphaNumericString += generateRandomLetter();
-                alphaNumericString += generateRandomNumber();
-            }
 
-            theOutput.innerHTML = alphaNumericString;
+            theOutput.innerHTML = 'Say <strong>' + generateRandomNumber() +
+                '</strong> word(s) beginning with <strong>' + generateRandomLetter() + '</strong>';
 
         });
     </script>
