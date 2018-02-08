@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ce titre est présent dans le "DOM de base"</h1>
+    <!-- Dans la source il n'y a qu'un seul paragraph dans le div suivant -->
+    <div id="injectTarget">
+        <p>Ce paragraph est présent dans le "DOM de base"</p>
+    </div>
+
+    <script>
+        //On injecte des nouveaux paragraphes chaque 5 seconds dans le div qui est vide originairememt
+        document.addEventListener("DOMContentLoaded", function (event) {
+            setInterval(function () {
+                document.querySelector('#injectTarget').innerHTML +=
+                    "<p>Nouveau paragraph depuis un script</p>";
+            }, 5000)
+        });
+    </script>
+</body>
+
+</html>
