@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inputs 4/4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add some style to the input and output for a better layout -->
+    <style>
+        input {
+            font-size: 20px;
+            padding: 10px 20px;
+            width: 500px;
+            text-align: center;
+        }
+
+        .binaryCode {
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: blueviolet;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Inputs 4/4</h1>
+    <p>Write any digital number in the text field below to see the equivalent in binary digits.</p>
+    <!-- Outside a form, inputs can be identified as any other element, for instance using the id="myUniqueId" attribute -->
+    <input type="number" value="Now I am interactive!" id="myInteractiveTextInput">
+    <!-- Use a paragraph as output -->
+    <p id="output" class="binaryCode"></p>
+    <!-- Identify it with JavaScript -->
+    <script>
+        //Use a document method to identify the element, e.g. document.querySelector or document.getElementById
+        var theInput = document.querySelector('#myInteractiveTextInput');
+        //Identiy the output element
+        var theOutput = document.querySelector('#output');
+        //Add an event listener for keyboards-up events (i.e. every time the user release the key after a new character is inserted)
+        theInput.addEventListener('keyup', function () {
+            //Perform some logic with the input value to output the binary code
+            //Value from text inputs are String by default, so first convert it in Number
+            var num = Number(theInput.value);
+            //Check if there are no letters or symbols in the field (this can be done in different ways)
+            if (theInput.value !== String(num)) {
+                theOutput.innerHTML = 'Please, provide a valid digital number';
+            } else {
+                theOutput.innerHTML = num.toString(2);
+            }
+        });
+    </script>
+</body>
+
+</html>

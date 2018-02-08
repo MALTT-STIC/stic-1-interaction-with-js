@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Multiple buttons 1/5</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add some style to improve the layout -->
+    <style>
+        ul li {
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multiple buttons 1/5</h1>
+    <!-- If you have multiple interactive elements, you can't use the id attribute, which is meant to be unique -->
+    <!-- You can use a class or an attribute to select multiple elements -->
+    <ul>
+        <li>
+            <button class="interactiveElement">First interactive button</button>
+        </li>
+        <li>
+            <button class="interactiveElement">Second interactive button</button>
+        </li>
+        <li>
+            <button class="interactiveElement">Third interactive button</button>
+        </li>
+        <li>
+            <button>A button, but not interactive</button>
+        </li>
+    </ul>
+    <!-- Define an output element -->
+    <p id="elementToChange">No button clicked yet!</p>
+    <!-- The instructions through the script -->
+    <script>
+        //Select all buttons with class="interactiveElement"
+        var theButtons = document.querySelectorAll('.interactiveElement');
+        //Log the content of the theButtons variable, which is a list of Nodes
+        console.log(theButtons);
+    </script>
+</body>
+
+</html>

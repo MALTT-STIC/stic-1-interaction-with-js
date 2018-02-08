@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interactive button 9/10</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- We add some styling to the button through CSS -->
+    <style>
+        .betterButtonInterface {
+            background-color: #066;
+            color: #FFF;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interactive button 9/10</h1>
+    <!-- The interactive element -->
+    <button id="interactiveIdentifier" class="betterButtonInterface">I am interactive now!</button>
+
+    <!-- If we want to change some element in the DOM after the interaction, we need to identify it (as it was for the button) -->
+    <p id="elementToChange">I will be changed!</p>
+
+    <!-- You need a script for it -->
+    <script>
+        //Create a symbolic reference (i.e. a variable) to the INTERACTIVE HTML element
+        var theButton = document.getElementById('interactiveIdentifier');
+        //Create a symbolic reference to the ELEMENT TO CHANGE after the interaction
+        var theOutput = document.getElementById('elementToChange');
+        //Add a listener that perform some basic logic
+        theButton.addEventListener('click', function () {
+            //You can add some computational logic inside the event listener
+            //These instructions check the current time and modify the content of the paragraph depending if it is morning or afternoon
+            var now = new Date().getHours();
+            if (now < 12) {
+                theOutput.innerHTML = '<strong>Good morning!</strong>'
+            } else {
+                theOutput.innerHTML = '<strong>Good afternoon!</strong>'
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

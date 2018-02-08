@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Forms</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>Forms</h1>
+    <p>You can use JavaScript to intercept the request and access all the content of the form after submission.</p>
+    <!-- Identify the form, for example with an id -->
+    <form name="mySimpleForm" id="theInteractiveForm">
+        First field:
+        <input type="text" name="firstField" value="Hello there!">
+        <hr> Second field:
+        <input type="text" name="secondField" value="Change me if you want!">
+        <hr> Select menu:
+        <select name="selectField">
+            <option value="First choice">First choice</option>
+            <option value="Second choice">Second choice</option>
+        </select>
+        <hr>
+        <textarea name="longText" cols="70" rows="10">Textarea</textarea>
+        <hr>
+        <input type="submit" value="Send">
+    </form>
+    <p>Click the send button, the page will
+        <strong>not</strong> realod now.</p>
+    <!-- Add a script to handle the submission -->
+    <script>
+        //Identify the form
+        var theForm = document.querySelector('#theInteractiveForm');
+        //Add an event listener that prevents the new http request using the event object as argument to the handler
+        theForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            //Access the content of the fields using the name of the form and the field
+            console.log(document.forms['mySimpleForm'].firstField.value);
+            console.log(document.forms['mySimpleForm'].secondField.value);
+            console.log(document.forms['mySimpleForm'].selectField.value);
+            console.log(document.forms['mySimpleForm'].longText.value);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interactive button 5/10</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- We add some styling to the button through CSS -->
+    <style>
+        .betterButtonInterface {
+            background-color: #066;
+            color: #FFF;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interactive button 5/10</h1>
+    <!-- The interactive element -->
+    <button id="interactiveIdentifier" class="betterButtonInterface">I am interactive now!</button>
+
+    <!-- You need a script for it -->
+    <script>
+        //Create a symbolic reference (i.e. a variable) to the HTML element
+        var theButton = document.getElementById('interactiveIdentifier');
+        //Add a listener that just print a message when the button is clicked
+        theButton.addEventListener('click', function () {
+            console.log('theButton has been clicked!');
+        });
+    </script>
+
+</body>
+
+</html>

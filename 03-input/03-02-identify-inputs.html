@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inputs 2/4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add some style to the input for a better layout -->
+    <style>
+        input {
+            font-size: 20px;
+            padding: 10px 20px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Inputs 2/4</h1>
+    <!-- Outside a form, inputs can be identified as any other element, for instance using the id="myUniqueId" attribute -->
+    <input type="text" value="I am not interactive yet!" id="myInteractiveTextInput">
+    <!-- Identify it with JavaScript -->
+    <script>
+        //Use a document method to identify the element, e.g. document.querySelector or document.getElementById
+        var theInput = document.querySelector('#myInteractiveTextInput');
+        //You can access the value of the input as a normal attribue now
+        console.log(theInput.value);
+    </script>
+</body>
+
+</html>

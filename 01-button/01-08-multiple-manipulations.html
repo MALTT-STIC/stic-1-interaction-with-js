@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interactive button 8/10</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- We add some styling to the button through CSS -->
+    <style>
+        .betterButtonInterface {
+            background-color: #066;
+            color: #FFF;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Interactive button 8/10</h1>
+    <!-- The interactive element -->
+    <button id="interactiveIdentifier" class="betterButtonInterface">I am interactive now!</button>
+
+    <!-- If we want to change some element in the DOM after the interaction, we need to identify it (as it was for the button) -->
+    <p id="elementToChange">I will be changed!</p>
+
+    <!-- You need a script for it -->
+    <script>
+        //Create a symbolic reference (i.e. a variable) to the INTERACTIVE HTML element
+        var theButton = document.getElementById('interactiveIdentifier');
+        //Create a symbolic reference to the ELEMENT TO CHANGE after the interaction
+        var theOutput = document.getElementById('elementToChange');
+        //Add a listener that modifies the content and style of the paragraph, as well as the button itself
+        theButton.addEventListener('click', function () {
+            //You can have multiple istructions inside the event handler
+            theOutput.innerHTML = 'I have been changed through the interaction!';
+            //You can change the interactive element itself
+            theButton.innerHTML = 'I have been clicked!';
+            //You can change the style of an element
+            theOutput.style.backgroundColor = '#000';
+            theOutput.style.color = '#FFF';
+            theOutput.style.fontSize = '20px';
+        });
+    </script>
+
+</body>
+
+</html>
