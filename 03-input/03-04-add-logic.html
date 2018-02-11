@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Add some style to the input and output for a better layout -->
     <style>
+        body {
+            text-align: center;
+        }
+
         input {
             font-size: 20px;
-            padding: 10px 20px;
+            padding: 20px 20px;
             width: 500px;
             text-align: center;
         }
@@ -27,7 +31,7 @@
     <h1>Inputs 4/4</h1>
     <p>Write any digital number in the text field below to see the equivalent in binary digits.</p>
     <!-- Outside a form, inputs can be identified as any other element, for instance using the id="myUniqueId" attribute -->
-    <input type="number" value="Now I am interactive!" id="myInteractiveTextInput">
+    <input type="number" value="1" id="myInteractiveTextInput">
     <!-- Use a paragraph as output -->
     <p id="output" class="binaryCode"></p>
     <!-- Identify it with JavaScript -->
@@ -36,8 +40,10 @@
         var theInput = document.querySelector('#myInteractiveTextInput');
         //Identiy the output element
         var theOutput = document.querySelector('#output');
-        //Add an event listener for keyboards-up events (i.e. every time the user release the key after a new character is inserted)
-        theInput.addEventListener('keyup', function () {
+        //We output the current value in the output element when the page is loaded for consistency
+        theOutput.innerHTML = theInput.value;
+        //Add an event listener for input changes (i.e. every change will be reflected as is happens)
+        theInput.addEventListener('input', function () {
             //Perform some logic with the input value to output the binary code
             //Value from text inputs are String by default, so first convert it in Number
             var num = Number(theInput.value);
