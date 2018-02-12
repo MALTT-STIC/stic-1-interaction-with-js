@@ -48,10 +48,10 @@
             //Value from text inputs are String by default, so first convert it in Number
             var num = Number(theInput.value);
             //Check if there are no letters or symbols in the field (this can be done in different ways)
-            if (theInput.value !== String(num)) {
-                theOutput.innerHTML = 'Please, provide a valid digital number';
-            } else {
+            if (theInput.value === String(num)) {
                 theOutput.innerHTML = num.toString(2);
+            } else {
+                theOutput.innerHTML = 'Please, provide a valid digital number';
             }
         });
     </script>
